@@ -12,7 +12,7 @@ spec:
       labels:
         app: tech365
     spec:
-    containers:
+      containers:
       - name: tech365
         image: 924338258393.dkr.ecr.us-east-2.amazonaws.com/tech365image
         imagePullPolicy: Always
