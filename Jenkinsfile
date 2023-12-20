@@ -43,34 +43,34 @@ stage('Build') {
 
 
 // snyk analisys
-	// stage('RunSCAAnalysisUsingSnyk') {
- //            steps {		
-	// 			withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
-	// 				sh 'mvn snyk:test -fn'
-	// 			}
-	// 		}
- //    }	
+	stage('RunSCAAnalysisUsingSnyk') {
+            steps {		
+				withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
+					sh 'mvn snyk:test -fn'
+				}
+			}
+    }	
 
 // building docker image
-	// stage('Build') { 
- //            steps { 
- //               withDockerRegistry([credentialsId: "dockerlogin", url: ""]) {
- //                 script{
- //                 app =  docker.build("tech365image")
- //                 }
- //               }
- //            }
- //    }
+	stage('Build') { 
+            steps { 
+               withDockerRegistry([credentialsId: "dockerlogin", url: ""]) {
+                 script{
+                 app =  docker.build("tech365image")
+                 }
+               }
+            }
+    }
 
-	// stage('Push') {
- //            steps {
- //                script{
- //                    docker.withRegistry('https://924338258393.dkr.ecr.us-east-2.amazonaws.com', 'ecr:us-east-2:aws-credentials') {
- //                    app.push("latest")
- //                    }
- //                }
- //            }
- //    	}
+	stage('Push') {
+            steps {
+                script{
+                    docker.withRegistry('https://924338258393.dkr.ecr.us-east-2.amazonaws.com', 'ecr:us-east-2:aws-credentials') {
+                    app.push("latest")
+                    }
+                }
+            }
+    	}
 
     // deploy to kubernetes cluster
 
