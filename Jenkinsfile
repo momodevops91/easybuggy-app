@@ -10,13 +10,13 @@ pipeline {
 			}
     }
 
-// 	stage('RunSCAAnalysisUsingSnyk') {
-//             steps {		
-// 				withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
-// 					sh 'mvn snyk:test -fn'
-// 				}
-// 			}
-//     }	
+	stage('RunSCAAnalysisUsingSnyk') {
+            steps {		
+				withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
+					sh 'mvn snyk:test -fn'
+				}
+			}
+    }	
 
 // building docker image
 stage('Build') { 
@@ -42,14 +42,6 @@ stage('Build') {
     	}
 
 
-// snyk analisys
-	stage('RunSCAAnalysisUsingSnyk') {
-            steps {		
-				withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
-					sh 'mvn snyk:test -fn'
-				}
-			}
-    }	
 
 // building docker image
 	stage('Build') { 
