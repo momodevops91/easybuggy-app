@@ -44,7 +44,7 @@ pipeline{
             }
         }
 
-     }
+    
      stage('Kubernetes Deployment of Easy Buggy Web Application') {
 	   steps {
 	      withKubeConfig([credentialsId: 'kubelogin']) {
@@ -54,6 +54,6 @@ pipeline{
 	      }
         	}
     
-        
+     }    
     
 }
