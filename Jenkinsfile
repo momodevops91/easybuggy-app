@@ -35,7 +35,7 @@ pipeline{
                 }
             }
 
-                // push to aws ecr
+                // push to aws ecr after build
                 stage('PushToECR'){
                     steps{
                         script{
