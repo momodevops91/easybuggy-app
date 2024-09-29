@@ -4,6 +4,7 @@ pipeline{
         maven 'maven'
     }
     stages{
+        // sonarcloud analysis
         stage('CompileandRunSonarAnalysis'){
             steps{
                 withCredentials([string(credentialsId: 'tech365token', variable: 'tech365token')]) {
@@ -11,6 +12,15 @@ pipeline{
                     
                 }
             }
+        }
+
+        // snyk code analysis
+        stage('RunSnykCodeAnalysis'){
+        steps{
+            withCredentials([string(credentialsIs:'snyk_token', variable: 'snyk_token')]) {
+                sh 'mvn snyk:test -fn'
+            }
+        }
         }
        
 
