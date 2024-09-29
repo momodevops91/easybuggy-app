@@ -25,7 +25,7 @@ pipeline{
             // building docker image
             stage("Build Docker image"){
                 steps{
-                    withCredentials(credentialsId: 'dockerlogin', url: '') {
+                    withCredentials([credentialsId: 'dockerlogin', url: '']) {
                         script{
                             app =  docker.build("javaapp")
                             
