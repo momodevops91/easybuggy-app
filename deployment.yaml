@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: tech365
-        image: 924338258393.dkr.ecr.us-east-1.amazonaws.com/javaapp
+        image: 992382402044.dkr.ecr.us-east-1.amazonaws.com/javaapp
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
